@@ -1,6 +1,7 @@
 package com.test.springcrudswagger.services;
 
 import com.test.springcrudswagger.domain.dto.ServiceDto;
+import com.test.springcrudswagger.domain.dto.ServiceRequestDto;
 import com.test.springcrudswagger.domain.entities.ServiceEntity;
 import com.test.springcrudswagger.repository.ServiceRepository;
 import com.test.springcrudswagger.util.ResponseUtil;
@@ -18,16 +19,16 @@ public class ServiceServices {
     @Autowired
     ServiceRepository serviceRepository;
 
-    public ResponseEntity<Object> store(ServiceDto serviceDto)
+    public ResponseEntity<Object> store(ServiceRequestDto serviceRequestDto)
     {
         ServiceEntity serviceEntity = new ServiceEntity();
-        serviceEntity.setBrand(serviceDto.getMerk());
-        serviceEntity.setServiceType(serviceDto.getService_type());
-        serviceEntity.setComplaint(serviceDto.getComplaint());
-        serviceEntity.setMotorCycleType(serviceDto.getMotorcycle_type());
-        serviceEntity.setOwner(serviceDto.getOwner());
-        serviceEntity.setPhoneNumber(serviceDto.getPhone_number());
-        serviceEntity.setCost(serviceDto.getCost());
+        serviceEntity.setBrand(serviceRequestDto.getMerk());
+        serviceEntity.setServiceType(serviceRequestDto.getService_type());
+        serviceEntity.setComplaint(serviceRequestDto.getComplaint());
+        serviceEntity.setMotorCycleType(serviceRequestDto.getMotorcycle_type());
+        serviceEntity.setOwner(serviceRequestDto.getOwner());
+        serviceEntity.setPhoneNumber(serviceRequestDto.getPhone_number());
+        serviceEntity.setCost(serviceRequestDto.getCost());
         serviceEntity.setStatus("WAITING");
         serviceRepository.save(serviceEntity);
 
